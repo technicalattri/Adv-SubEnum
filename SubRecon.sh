@@ -17,7 +17,7 @@ function banner(){
     echo -e ${CP}"       |____/|_|\__ _|\___|_|\_\ |_| \_\____/ \___\___/|_| |_|   #"
     echo -e ${CP}"              Subdomain Enumeration Tool                         #"
     echo -e ${BLUE}"              https://github.com/technicalattri                #"
-    echo -e ${YELLOW}"              Coded By: Nitin Attri                           #"
+    echo -e ${YELLOW}"              Coded By: Nitin Attri && Komal0x01             #"
     echo -e ${RED}"################################################################## \n "
 }
 

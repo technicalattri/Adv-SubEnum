@@ -146,7 +146,7 @@ function menu(){
     if [ $choice -eq 1 ]; then
         subdomain_enumeration
         sort_and_deduplicate_subdomains
-    elif [ $choice -eq 2]; then
+    elif [ $choice -eq 2 ]; then  
         bulk_subdomain_enumeration
         sort_and_deduplicate_subdomains
     elif [ $choice -eq 3 ]; then

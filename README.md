@@ -45,14 +45,14 @@ This script will:
 After installing the dependencies, you can run the **Adv-SubEnum** tool:
 
 ```bash
-chmod +x SubEnum.sh
-./SubEnum.sh
+chmod +x SubRecon.sh
+./SubRecon.sh
 ```
 
 ### Example
 
 ```bash
-./SubEnum.sh example.com
+./SubRecon.sh example.com
 ```
 
 This command will run the subdomain enumeration process for `example.com` using the integrated tools and display the results in the terminal.

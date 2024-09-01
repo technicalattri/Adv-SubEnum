@@ -1,4 +1,24 @@
 #!/bin/bash
+NC='\033[0m'
+RED='\033[1;38;5;196m'
+GREEN='\033[1;38;5;040m'
+BLUE='\033[1;38;5;012m'
+YELLOW='\033[1;38;5;214m'
+CPO='\033[1;38;5;205m'
+CP='\033[1;38;5;221m'
+
+function banner(){
+    echo -e ${RED}"##################################################################"
+    echo -e ${CP}"         ____        _     ____                                   #"
+    echo -e ${CP}"        / ___| _   _| |__ |  _ \ ___  ___ ___  _ __               #"
+    echo -e ${CP}"        \___ \| | | | '_ \| |_) / _ \/ __/ _ \| '_ \              #"
+    echo -e ${CP}"         ___) | |_| | |_) |  _ <  __/ (_| (_) | | | |             #"
+    echo -e ${CP}"        |____/ \__,_|_.__/|_| \_\___|\___\___/|_| |_|             #"
+    echo -e ${CP}"              Subdomain Enumeration Tool                          #"
+    echo -e ${BLUE}"              https://github.com/technicalattri                 #"
+    echo -e ${YELLOW}"              Coded By: Nitin Attri && Komal0x01              #"
+    echo -e ${RED}"################################################################## \n "
+}
 
 # Function to check if a command exists
 command_exists() {

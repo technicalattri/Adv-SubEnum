@@ -144,14 +144,16 @@ function subdomain_enumeration() {
         echo -e "${GREEN}  [+] Found $(wc -l < "${temp_dir}/assetfinder.txt") subdomains from Assetfinder${NC}"
     fi
 
-    # 4. Amass (Passive Only)
+    # 4. Amass (Passive Only) - WITH TIMEOUT TO PREVENT HANGING
     echo -e "${CP}  [*] Running Amass (Passive)...${NC}"
-    if ! amass enum -passive -d "$domain" -o "${temp_dir}/amass.txt" 2>"${temp_dir}/amass.err"; then
+    timeout 300 amass enum -passive -d "$domain" -o "${temp_dir}/amass.txt" 2>"${temp_dir}/amass.err"
+    if [[ $? -eq 124 ]]; then
+        echo -e "${YELLOW}  [!] Amass timed out after 5 minutes (common issue), using partial results${NC}"
+    elif [[ $? -ne 0 ]]; then
         echo -e "${RED}  [!] Amass failed: $(cat "${temp_dir}/amass.err")${NC}"
     else
         echo -e "${GREEN}  [+] Found $(wc -l < "${temp_dir}/amass.txt") subdomains from Amass${NC}"
     fi
-
     # 5. Wayback Machine (Historical Data)
     echo -e "${CP}  [*] Checking Wayback Machine...${NC}"
     if ! curl -s "http://web.archive.org/cdx/search/cdx?url=*.$domain/*&output=text&fl=original&collapse=urlkey" 2>"${temp_dir}/wayback.err" | sed -e 's_https*://__' -e "s/\/.*//" | sort -u > "${temp_dir}/wayback.txt"; then
